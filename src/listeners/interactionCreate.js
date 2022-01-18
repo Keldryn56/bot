@@ -130,7 +130,10 @@ module.exports = class InteractionCreateEventListener extends EventListener {
 				// handle ticket claiming
 				if (!(await this.client.utils.isStaff(interaction.member))) return;
 				const t_row = await this.client.db.models.Ticket.findOne({ where: { id: interaction.channel.id } });
-				await t_row.update({ claimed_by: interaction.user.id });
+				await t_row.update({ 
+					claimed_by: interaction.user.id,
+					claimed_dt:  new Date() 
+				});
 				await interaction.channel.permissionOverwrites.edit(interaction.user.id, { VIEW_CHANNEL: true }, `Ticket claimed by ${interaction.user.tag}`);
 
 				const cat_row = await this.client.db.models.Category.findOne({ where: { id: t_row.category } });

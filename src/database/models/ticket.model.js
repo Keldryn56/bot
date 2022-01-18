@@ -14,6 +14,10 @@ module.exports = (_client, sequelize) => {
 			allowNull: true,
 			type: DataTypes.CHAR(19)
 		},
+		claimed_dt : {
+			allowNull: true,
+			type: DataTypes.DATE
+		},
 		closed_by: {
 			allowNull: true,
 			type: DataTypes.CHAR(19)
