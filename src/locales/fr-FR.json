@@ -364,6 +364,10 @@
 									"description": "Activer la réception d'un ticket ?",
 									"name": "réception"
 								},
+								"queue": {
+									"description": "Activer le système de file d'attente",
+									"name": "queue"
+								},
 								"id": {
 									"description": "L'ID de la catégorie à éditer",
 									"name": "id"

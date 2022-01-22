@@ -366,6 +366,10 @@
 									"description": "Enable ticket claiming?",
 									"name": "claiming"
 								},
+								"queue": {
+									"description": "Enable queueing system",
+									"name": "queue"
+								},
 								"id": {
 									"description": "The ID of the category to edit",
 									"name": "id"

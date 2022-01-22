@@ -6,6 +6,10 @@ module.exports = ({ config }, sequelize) => {
 			defaultValue: false,
 			type: DataTypes.BOOLEAN
 		},
+		queue: {
+			defaultValue: false,
+			type: DataTypes.BOOLEAN
+		},
 		guild: {
 			allowNull: false,
 			references: {

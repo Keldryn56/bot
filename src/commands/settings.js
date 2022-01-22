@@ -66,6 +66,12 @@ module.exports = class SettingsCommand extends Command {
 									type: Command.option_types.BOOLEAN
 								},
 								{
+									description: i18n('commands.settings.options.categories.options.edit.options.queue.description'),
+									name: i18n('commands.settings.options.categories.options.edit.options.queue.name'),
+									required: false,
+									type: Command.option_types.BOOLEAN
+								},
+								{
 									description: i18n('commands.settings.options.categories.options.edit.options.image.description'),
 									name: i18n('commands.settings.options.categories.options.edit.options.image.name'),
 									required: false,
@@ -282,6 +288,7 @@ module.exports = class SettingsCommand extends Command {
 				});
 			}
 			const claiming = interaction.options.getBoolean(default_i18n('commands.settings.options.categories.options.edit.options.claiming.name'));
+			const queue = interaction.options.getBoolean(default_i18n('commands.settings.options.categories.options.edit.options.queue.name'));
 			const image = interaction.options.getString(default_i18n('commands.settings.options.categories.options.edit.options.image.name'));
 			const max_per_member = interaction.options.getInteger(default_i18n('commands.settings.options.categories.options.edit.options.max_per_member.name'));
 			const name = interaction.options.getString(default_i18n('commands.settings.options.categories.options.edit.options.name.name'));
@@ -293,6 +300,7 @@ module.exports = class SettingsCommand extends Command {
 			const roles = interaction.options.getString(default_i18n('commands.settings.options.categories.options.edit.options.roles.name'));
 			const survey = interaction.options.getString(default_i18n('commands.settings.options.categories.options.edit.options.survey.name'));
 			if (claiming !== null) category.set('claiming', claiming);
+			if (queue !== null) category.set('queue', queue);
 			if (max_per_member !== null) category.set('max_per_member', max_per_member);
 			if (image !== null) category.set('image', image);
 			if (name !== null) category.set('name', name);
