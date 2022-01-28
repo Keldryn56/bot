@@ -42,6 +42,14 @@ module.exports = ({ config }, sequelize) => {
 			defaultValue: config.locale,
 			type: DataTypes.STRING
 		},
+		api_url: {
+			defaultValue: config.api_url,
+			type: DataTypes.STRING
+		},
+		enable_api: {
+			defaultValue: config.enable_api,
+			type: DataTypes.BOOLEAN
+		},
 		log_messages: {
 			defaultValue: config.defaults.log_messages,
 			type: DataTypes.BOOLEAN

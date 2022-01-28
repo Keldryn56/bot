@@ -144,16 +144,32 @@ module.exports = class InteractionCreateEventListener extends EventListener {
 
 				this.client.log.info(`${interaction.user.tag} has claimed "${interaction.channel.name}" in "${interaction.guild.name}"`);
 
-				await interaction.reply({
-					embeds: [
-						new MessageEmbed()
-							.setColor(settings.colour)
-							.setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
-							.setTitle(i18n('ticket.claimed.title'))
-							.setDescription(i18n('ticket.claimed.description', interaction.member.toString()))
-							.setFooter(settings.footer, interaction.guild.iconURL())
-					]
-				});
+				if(cat_row.queue && cat_row.claiming && settings.enable_api == true){
+
+					const api_url = settings.api_url + '/ticket/'+interaction.channel.id;
+
+					await interaction.reply({
+						embeds: [
+							new MessageEmbed()
+								.setColor(settings.colour)
+								.setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
+								.setTitle(i18n('ticket.queued.title'))
+								.setDescription(i18n('ticket.queued.description', interaction.member.toString(), api_url))
+						]
+					});
+				}else{
+					await interaction.reply({
+						embeds: [
+							new MessageEmbed()
+								.setColor(settings.colour)
+								.setAuthor(interaction.user.username, interaction.user.displayAvatarURL())
+								.setTitle(i18n('ticket.claimed.title'))
+								.setDescription(i18n('ticket.claimed.description', interaction.member.toString()))
+						]
+					});
+				}
+
+				
 
 				const components = new MessageActionRow();
 

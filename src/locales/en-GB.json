@@ -426,6 +426,14 @@
 					"description": "Set options",
 					"name": "set",
 					"options": {
+						"enable_api": {
+							"description": "Enable order tracking",
+							"name": "enable_api"
+						},
+						"api_url": {
+							"description": "Api Link (DO NOT TOUCH !!!!! )",
+							"name": "api_url"
+						},
 						"close_button": {
 							"description": "Enable closing with a button?",
 							"name": "close_button"
@@ -555,6 +563,10 @@
 		"create_ticket": "Create a ticket"
 	},
 	"ticket": {
+		"queued": {
+			"description": "%s has claimed this ticket. \n\n[>> Follow my order in real time](%s)",
+			"title": "✅ Ticket claimed"
+		},
 		"claim": "Claim",
 		"claimed": {
 			"description": "%s has claimed this ticket.",

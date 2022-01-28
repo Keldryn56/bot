@@ -147,6 +147,18 @@ module.exports = class SettingsCommand extends Command {
 					name: i18n('commands.settings.options.set.name'),
 					options: [
 						{
+							description: i18n('commands.settings.options.set.options.api_url.description'),
+							name: i18n('commands.settings.options.set.options.api_url.name'),
+							required: false,
+							type: Command.option_types.STRING
+						},
+						{
+							description: i18n('commands.settings.options.set.options.enable_api.description'),
+							name: i18n('commands.settings.options.set.options.enable_api.name'),
+							required: false,
+							type: Command.option_types.BOOLEAN
+						},
+						{
 							description: i18n('commands.settings.options.set.options.close_button.description'),
 							name: i18n('commands.settings.options.set.options.close_button.name'),
 							required: false,
@@ -337,12 +349,20 @@ module.exports = class SettingsCommand extends Command {
 		}
 		case default_i18n('commands.settings.options.set.name'): {
 			const close_button = interaction.options.getBoolean(default_i18n('commands.settings.options.set.options.close_button.name'));
+
+			const enable_api = interaction.options.getBoolean(default_i18n('commands.settings.options.set.options.enable_api.name'));
+			const api_url = interaction.options.getString(default_i18n('commands.settings.options.set.options.api_url.name'));
+
 			const colour = interaction.options.getString(default_i18n('commands.settings.options.set.options.colour.name'));
 			const error_colour = interaction.options.getString(default_i18n('commands.settings.options.set.options.error_colour.name'));
 			const footer = interaction.options.getString(default_i18n('commands.settings.options.set.options.footer.name'));
 			const locale = interaction.options.getString(default_i18n('commands.settings.options.set.options.locale.name'));
 			const log_messages = interaction.options.getBoolean(default_i18n('commands.settings.options.set.options.log_messages.name'));
 			const success_colour = interaction.options.getString(default_i18n('commands.settings.options.set.options.success_colour.name'));
+			
+			if (enable_api !== null) settings.set('enable_api', enable_api);
+			if (api_url !== null) settings.set('api_url', api_url);
+
 			if (close_button !== null) settings.set('close_button', close_button);
 			if (colour !== null) settings.set('colour', colour.toUpperCase());
 			if (error_colour !== null) settings.set('error_colour', error_colour.toUpperCase());

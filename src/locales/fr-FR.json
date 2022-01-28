@@ -360,13 +360,13 @@
 							"description": "Faire des changement sur la configuration d'une catégorie",
 							"name": "éditer",
 							"options": {
+								"queue": {
+									"description": "Activer le système de queue sur cette catégorie",
+									"name": "queue"
+								},
 								"claiming": {
 									"description": "Activer la réception d'un ticket ?",
 									"name": "réception"
-								},
-								"queue": {
-									"description": "Activer le système de file d'attente",
-									"name": "queue"
 								},
 								"id": {
 									"description": "L'ID de la catégorie à éditer",
@@ -418,6 +418,14 @@
 					"description": "Définir les options",
 					"name": "définir",
 					"options": {
+						"enable_api": {
+							"description": "Activer le suivi de commande",
+							"name": "enable_api"
+						},
+						"api_url": {
+							"description": "Lien vers l'API (NE PAS TOUCHER !!!!! )",
+							"name": "api_url"
+						},
 						"close_button": {
 							"description": "Activer la fermeture avec un bouton ?",
 							"name": "fermer_bouton"
@@ -518,9 +526,13 @@
 		"title": "❌"
 	},
 	"ticket": {
+		"queued": {
+			"description": "%s a réclamé ce billet. \n\n[>> Suivez la commande en temps réel](%s)",
+			"title": "✅ billet réclamé"
+		},
 		"claimed": {
 			"description": "%s a réclamé ce billet.",
-			"title": "✅ billet fermé"
+			"title": "✅ billet réclamé"
 		},
 		"closed": {
 			"description": "Ce billet a été fermé.\nLe canal sera supprimé en 5 secondes.",
