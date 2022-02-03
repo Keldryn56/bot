@@ -525,6 +525,9 @@
 		"description": "Vous n’avez pas les autorisations requises pour utiliser cette commande :\n%s",
 		"title": "❌"
 	},
+	"panel": {
+		"create_ticket": "📩 Créer un ticket"
+	},
 	"ticket": {
 		"queued": {
 			"description": "%s a réclamé ce billet. \n\n[>> Suivez la commande en temps réel](%s)",
